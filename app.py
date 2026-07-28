@@ -4,11 +4,19 @@ import numpy as np
 import pickle
 import plotly.express as px
 from pathlib import Path
+import os
 
 from data_prep import CLUSTER_FEATURE_COLS, load_dictionary
 from decode import decode_code, decode_feature_column, pretty_field_name
 
 ARTIFACT_DIR = Path(__file__).parent / "artifacts"
+st.write("Path:", ARTIFACT_DIR)
+st.write("Exists:", ARTIFACT_DIR.exists())
+if ARTIFACT_DIR.exists():
+    st.write("Files inside:", os.listdir(ARTIFACT_DIR))
+else:
+    st.write("Parent contents:", os.listdir(Path(__file__).parent))
+st.stop()  # stops the app here so you can read the output
 
 st.set_page_config(page_title="Mineral Prospectivity Modelling", layout="wide")
 
